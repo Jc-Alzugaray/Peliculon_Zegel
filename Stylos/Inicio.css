@@ -21,6 +21,9 @@ body {
     margin: 0;
     background-color: var(--color-dark-bg);
     color: var(--color-text-light); /* Color de texto predeterminado para el cuerpo */
+    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura del viewport */
+    display: flex; /* Para flexbox en el body para empujar el footer hacia abajo */
+    flex-direction: column; /* Apila los elementos verticalmente */
 }
 
 /* Estilos de fuentes globales para títulos y elementos específicos */
@@ -145,23 +148,38 @@ p {
     color: #fff;
 }
 
-/* --- Contenido Principal (Main) --- */
-.main-content {
+/* --- Contenedor principal para todas las páginas que tienen barra lateral y un footer al final --- */
+/* Este envolverá el main-content y el footer */
+.page-container {
+    display: flex;
+    flex-direction: column; /* Apila el main y el footer */
+    margin-top: var(--header-height); /* Deja espacio para el header fijo */
     margin-right: var(--sidebar-width); /* Deja espacio para la barra lateral fija */
-    margin-left: 0; /* Asegura que no haya margen izquierdo residual */
-    margin-top: var(--header-height); /* Empuja el contenido hacia abajo del header fijo */
-    padding: 20px; /* Espaciado interno para todo el contenido principal */
-    /* Altura mínima para asegurar que el footer se empuje hacia abajo si hay poco contenido */
-    min-height: calc(100vh - var(--header-height) - 100px); /* Ajusta 100px según la altura de tu footer */
-    box-sizing: border-box; /* Incluye padding en el ancho/alto */
+    flex-grow: 1; /* Permite que este contenedor ocupe el espacio disponible */
+    box-sizing: border-box;
+    width: calc(100% - var(--sidebar-width)); /* Ajusta el ancho para el sidebar */
 }
+
+
+/* --- Contenido Principal (Main) General --- */
+/* Se aplica a <main class="main-content"> dentro de .page-container o .page-layout-wrapper */
+.main-content {
+    flex-grow: 1; /* Permite que el contenido principal ocupe el espacio disponible, empujando el footer */
+    margin-left: auto; /* Centra el contenido */
+    margin-right: auto; /* Centra el contenido */
+    padding: 20px; 
+    box-sizing: border-box; 
+    max-width: 1200px; /* Ancho máximo para el contenido principal */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible hasta el max-width */
+}
+
 
 /* --- Carrusel --- */
 .carrusel {
     position: relative;
-    width: 100%; /* El carrusel ocupa el 100% del ancho de su contenedor (.main-content) */
-    max-width: 900px; /* Ajusta este valor para que el carrusel no se desborde con el sidebar */
-    margin: 20px auto; /* Centra el carrusel dentro del main-content */
+    width: 100%; 
+    max-width: 900px; 
+    margin: 20px auto; 
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 8px var(--color-shadow);
@@ -339,12 +357,9 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Ancho del footer es 100% menos el ancho de la sidebar */
-    width: calc(100% - var(--sidebar-width)); 
     box-sizing: border-box;
     flex-shrink: 0; /* Evita que el footer se encoja */
-    margin-right: var(--sidebar-width); /* Empuja el footer a la izquierda para dejar espacio a la sidebar */
-    margin-left: 0; /* Asegura que no haya margen izquierdo inesperado */
+    width: 100%; /* Ocupa todo el ancho de su contenedor (.page-container o .page-layout-wrapper) */
 }
 
 .footer-content {
@@ -416,12 +431,12 @@ p {
 }
 
 
-/* --- Media Queries para Responsividad --- */
+/* --- Media Queries para Responsividad General --- */
 
 /* Ajustes para pantallas medianas (tablets en horizontal y escritorios pequeños) */
 @media (max-width: 1024px) {
     .Header-Principal nav,
-    .main-content,
+    .main-content, 
     .footer-content {
         max-width: 900px; /* Ajusta el ancho máximo */
     }
@@ -478,12 +493,21 @@ p {
         display: none; /* Oculta el título "Explora" en móviles */
     }
 
+    /* Contenedor principal y footer en móviles */
+    .page-container,
+    .page-layout-wrapper { /* Aplica también a page-layout-wrapper en móviles */
+        margin-right: 0; /* Elimina el margen derecho */
+        margin-top: 0; /* No necesita margen superior si el header es estático */
+        width: 100%; /* Ocupa todo el ancho */
+    }
+
     /* Contenido principal se ajusta */
     .main-content {
-        margin-right: 0; /* Elimina el margen derecho */
         margin-left: 0;
-        margin-top: 0; /* No necesita margen superior si el header es estático */
+        margin-right: 0;
+        margin-top: 0; 
         padding: 15px;
+        max-width: 100%; /* Ocupa todo el ancho disponible en móvil */
     }
 
     /* Carrusel se ajusta */
@@ -508,7 +532,6 @@ p {
     /* Footer se ajusta */
     .footer {
         width: 100%; /* Ocupa todo el ancho */
-        margin-right: 0; /* Elimina el margen derecho */
         padding: 20px;
     }
     .footer-content {
@@ -550,4 +573,181 @@ p {
     .footer-section p, .footer-section ul li a, .footer-bottom {
         font-size: 0.85em;
     }
+}
+
+/* --- Estilos para la página de Soporte (paginas/Soporte.html) --- */
+
+/* Contenedor principal para la barra lateral y el main content en Soporte.html */
+.page-layout-wrapper {
+    display: flex; /* Utiliza flexbox para el layout de dos columnas */
+    margin-top: var(--header-height); /* Empuja el contenido debajo del header */
+    width: calc(100% - var(--sidebar-width)); /* El ancho disponible menos el sidebar */
+    box-sizing: border-box;
+    flex-grow: 1; /* Permite que este contenedor ocupe el espacio principal */
+}
+
+/* Ajuste del main-content dentro del layout-wrapper para la página de Soporte */
+.page-layout-wrapper .main-content {
+    flex-grow: 1; /* Permite que el contenido principal ocupe el espacio restante */
+    margin-left: 0; /* Asegura que no haya margen izquierdo residual */
+    margin-right: 0; /* Elimina el margen derecho, ya se maneja por el wrapper */
+    max-width: unset; /* Desactiva el max-width general para que se ajuste al flexbox */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Estilos de la sección de soporte */
+.support-section {
+    background-color: var(--color-darker-bg);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--color-shadow);
+    max-width: 900px; /* Limita el ancho de la sección para mejorar la lectura */
+    margin: 20px auto; /* Centra la sección dentro del main-content */
+}
+
+.support-section h2,
+.support-section h3 {
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-family: 'Averia Libre', cursive;
+}
+
+.support-section h3 {
+    font-size: 1.6em;
+    margin-top: 40px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+.support-section p {
+    color: var(--color-text-medium);
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Estilos para las preguntas frecuentes (FAQ) */
+.faq-item {
+    background-color: var(--color-dark-bg);
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.faq-item h4 {
+    color: var(--color-text-light);
+    font-size: 1.15em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    cursor: pointer; /* Para indicar que puede ser expandible */
+}
+
+.faq-item p {
+    color: var(--color-text-medium);
+    font-size: 0.95em;
+    display: block; /* Asegura que el párrafo se muestre como un bloque */
+    margin-top: 5px;
+}
+
+/* Estilos del formulario de contacto */
+.contact-form {
+    background-color: var(--color-dark-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre los grupos de formulario */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: var(--color-text-light);
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #444;
+    color: var(--color-text-light);
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Asegura que ocupen todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 100px;
+}
+
+.submit-button {
+    background-color: var(--color-secondary);
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: flex-start; /* Alinea el botón a la izquierda */
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Información de contacto directo */
+.contact-info {
+    background-color: var(--color-dark-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    margin-top: 30px;
+}
+
+.contact-info h4 {
+    color: var(--color-text-light);
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 10px;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-text-medium);
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.contact-info p i {
+    color: var(--color-secondary);
+    font-size: 1.2em;
 }

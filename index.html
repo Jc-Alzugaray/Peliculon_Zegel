@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"> <head>
+<html lang="es"> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PELICULON!</title>
@@ -16,9 +17,7 @@
     
     <header class="Header-Principal">
         <nav>
-            <h1>PELICULON!</h1>
-           
-            <ul>
+            <h1><a href="index.html">PELICULON!</a></h1> <ul>
                 <li class="login-boton">
                     <a href="#">Iniciar Sesion</a>
                 </li>
@@ -33,91 +32,88 @@
                 <li><a href="#">Estrenos</a></li>
                 <li><a href="#">Accion</a></li>
                 <li><a href="paginas/Terror.html">Terror</a></li>
-                <li><a href="#">Comedia</a></li>
+                <li><a href="paginas/Comedia.html">Comedia</a></li>
                 <li><a href="#">Dramas</a></li>
                 <li><a href="paginas/Soporte.html">Soporte</a></li>
             </ul>
         </nav>
     </aside>
 
-
-    <main class="main-content">
-
-
-         <div class="carrusel">
-        <img src="./imagenes/destino.png" alt="destino final">
-        <img src="./imagenes/dino.png" alt="jurasic">
-        <img src="./imagenes/pix.png" alt="">
-
-        <button class="carrusel-boton prev">&#10094;</button> <button class="carrusel-boton next">&#10095;</button> 
-        </div>
-
-               <section class="movie-grid-section">
-            <h2>Nuestras Películas</h2>
-            <div class="movie-grid">
-                <div class="movie-card">
-                    <img src="./imagenes/kid.png" alt="Título de la Película 1">
-                    <div class="movie-info">
-                        <h4>KarateKid</h4>
-                        <p>En Karate Kid: Leyendas, tras una tragedia familiar, el prodigio del kung fu Li Fong (Ben Wang) deja su hogar en Pekín y es obligado a mudarse a Nueva York con su madre.</p>
-                        <a href="#" class="view-more-button">Ver más</a>
+    <div class="page-container"> 
+        <main class="main-content">
+            <div class="carrusel">
+                <img src="./imagenes/pix.png" alt="Pelicula Pixeles" class="active carrusel-item">
+                <img src="./imagenes/dino.png" alt="Pelicula Jurassic World" class="carrusel-item">
+                <img src="./imagenes/destino.png" alt="Pelicula Destino Final" class="carrusel-item">
+                <button class="carrusel-boton prev" onclick="cambiarImagen(-1)">&#10094;</button>
+                <button class="carrusel-boton next" onclick="cambiarImagen(1)">&#10095;</button>
+            </div>
+            
+            <section class="movie-grid-section">
+                <h2>Nuestras Películas</h2>
+                <div class="movie-grid">
+                    <div class="movie-card">
+                        <img src="./imagenes/kid.png" alt="Título de la Película 1">
+                        <div class="movie-info">
+                            <h4>KarateKid</h4>
+                            <p>En Karate Kid: Leyendas, tras una tragedia familiar, el prodigio del kung fu Li Fong (Ben Wang) deja su hogar en Pekín y es obligado a mudarse a Nueva York con su madre.</p>
+                            <a href="#" class="view-more-button">Ver más</a>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <img src="./imagenes/ms.png" alt="Título de la Película 2">
+                        <div class="movie-info">
+                            <h4>Mision Imposible Sentencia Final</h4>
+                            <p>La octava entrega de la franquicia Misión Imposible.</p>
+                            <a href="#" class="view-more-button">Ver más</a>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <img src="./imagenes/ohana.png" alt="Título de la Película 3">
+                        <div class="movie-info">
+                            <h4>Lilo y Stitch</h4>
+                            <p>Remake de acción real del clásico animado de Disney "Lilo y Stitch".</p>
+                            <a href="#" class="view-more-button">Ver más</a>
+                        </div>
                     </div>
                 </div>
-                <div class="movie-card">
-                    <img src="./imagenes/ms.png" alt="Título de la Película 2">
-                    <div class="movie-info">
-                        <h4>Mision Imposible Sentencia Final</h4>
-                        <p>La octava entrega de la franquicia Misión Imposible.</p>
-                        <a href="#" class="view-more-button">Ver más</a>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>PELICULON!</h3>
+                    <p>Tu destino para las mejores películas. Explora estrenos, acción, terror, comedia y dramas.</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="movie-card">
-                    <img src="./imagenes/ohana.png" alt="Título de la Película 3">
-                    <div class="movie-info">
-                        <h4>Lilo y Stitch</h4>
-                        <p>Remake de acción real del clásico animado de Disney "Lilo y Stitch".</p>
-                        <a href="#" class="view-more-button">Ver más</a>
-                    </div>
+                <div class="footer-section links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#">Estrenos</a></li>
+                        <li><a href="#">Géneros</a></li>
+                        <li><a href="#">Próximamente</a></li>
+                        <li><a href="paginas/Soporte.html">Soporte</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
                 </div>
-                
-                </div>
-        </section>
-    </main>
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section about">
-                <h3>PELICULON!</h3>
-                <p>Tu destino para las mejores películas. Explora estrenos, acción, terror, comedia y dramas.</p>
-                <div class="social-links">
-                    <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <div class="footer-section contact">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> info@peliculon.com</p>
+                    <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Lima, Perú</p>
                 </div>
             </div>
-            <div class="footer-section links">
-                <h3>Enlaces Rápidos</h3>
-                <ul>
-                    <li><a href="#">Estrenos</a></li>
-                    <li><a href="#">Géneros</a></li>
-                    <li><a href="#">Próximamente</a></li>
-                    <li><a href="paginas/Soporte.html">Soporte</a></li>
-                    <li><a href="#">Contacto</a></li>
-                </ul>
+            <div class="footer-bottom">
+                &copy; <span id="current-year"></span> PELICULON! Todos los derechos reservados.
             </div>
-            <div class="footer-section contact">
-                <h3>Contacto</h3>
-                <p><i class="fas fa-envelope"></i> info@peliculon.com</p>
-                <p><i class="fas fa-phone"></i> +123 456 7890</p>
-                <p><i class="fas fa-map-marker-alt"></i> Lima, Perú</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; PELICULON! Todos los derechos reservados.
-        </div>
-    </footer>
-
-    
+        </footer>
+    </div> 
+    <script src="./js/carrusel.js">
+    </script>
 </body>
-
-<script src="./js/carrusel.js"></script>
 </html>
