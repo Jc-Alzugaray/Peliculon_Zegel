@@ -1,506 +1,553 @@
-/* Estilos Generales del Cuerpo */
-body {
-    font-family: 'Inter', sans-serif; /* Define la fuente principal para todo el texto del body */
-    margin: 0; /* Elimina el margen predeterminado del body, pegando el contenido a los bordes */
-    background-color: #374458; /* Establece un color de fondo oscuro para toda la página */
+/* Stylos/Inicio.css */
+
+/* --- Variables Globales y Reset Básico --- */
+:root {
+    --color-primary: #59528f; /* Morado para títulos principales */
+    --color-secondary: #007bff; /* Azul para botones y enlaces interactivos */
+    --color-dark-bg: #374458; /* Fondo principal oscuro */
+    --color-darker-bg: #2c3e50; /* Fondo de secciones más oscuro */
+    --color-darkest-bg: #1a1a1a; /* Fondo de pie de página */
+    --color-text-light: #e0e0e0; /* Texto claro */
+    --color-text-medium: #bbb; /* Texto gris claro */
+    --color-text-dark: #888888; /* Texto más oscuro para detalles */
+    --color-shadow: rgba(0, 0, 0, 0.3); /* Sombra para elementos */
+    --header-height: 70px; /* Altura aproximada del header fijo */
+    --sidebar-width: 220px; /* Ancho de la barra lateral fija */
 }
 
-/* Estilos del Encabezado Principal */
+/* Restablecimiento básico del body */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: var(--color-dark-bg);
+    color: var(--color-text-light); /* Color de texto predeterminado para el cuerpo */
+}
+
+/* Estilos de fuentes globales para títulos y elementos específicos */
+h1, h2, h3, .login-boton a, .view-more-button {
+    font-family: 'Averia Libre', cursive;
+}
+
+/* Estilo predeterminado para todos los párrafos */
+p {
+    font-family: 'Indie Flower', cursive;
+    line-height: 1.7;
+    font-size: 1.05em;
+}
+
+/* Ajustes específicos para párrafos en tarjetas de películas, soporte, etc. */
+.movie-info p,
+.support-section p,
+.faq-item p,
+.contact-info p {
+    line-height: 1.6;
+    font-size: 0.95em;
+    color: var(--color-text-medium);
+}
+
+/* --- Header Principal --- */
 .Header-Principal {
-    background-color: #333; /* Color de fondo oscuro para la barra de encabezado */
-    padding: 15px 20px; /* Espaciado interno: 15px arriba/abajo, 20px izquierda/derecha */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Añade una sombra suave en la parte inferior del encabezado */
+    background-color: #333;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px var(--color-shadow);
+    position: fixed; /* Header fijo en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
 }
 
 .Header-Principal nav {
-    display: flex; /* Utiliza Flexbox para organizar los elementos (título y botón) horizontalmente */
-    justify-content: space-between; /* Distribuye el espacio: título a la izquierda, botón a la derecha */
-    align-items: center; /* Centra los elementos (título y botón) verticalmente */
-    max-width: 1200px; /* Limita el ancho máximo del contenido de la navegación */
-    margin: 0 auto; /* Centra la navegación horizontalmente en la página */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .Header-Principal h1 {
-    color: #59528f; /* Establece un color morado para el título "PELICULON!" */
-    margin: 0; /* Elimina el margen predeterminado del encabezado h1 */
-    font-size: 2em; /* Define el tamaño de fuente del título (doble del tamaño base) */
-    font-weight: bold; /* Hace el texto del título en negrita */
+    color: var(--color-primary);
+    margin: 0;
+    font-size: 2em;
+    font-weight: bold;
 }
 
-/* Ocultar la imagen del logo (si existe en el HTML) */
-.Header-Principal img {
-    display: none; /* Oculta completamente cualquier imagen dentro del encabezado principal */
+.Header-Principal h1 a { /* Estilo para el enlace en el título H1 */
+    color: inherit; /* Hereda el color del H1 */
+    text-decoration: none;
 }
 
 .Header-Principal ul {
-    list-style: none; /* Quita los marcadores (viñetas) predeterminados de la lista */
-    margin: 0; /* Elimina el margen predeterminado de la lista */
-    padding: 0; /* Elimina el relleno predeterminado de la lista */
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .Header-Principal .login-boton a {
-    background-color: #007bff; /* Color de fondo azul para el botón "Iniciar Sesión" */
-    color: #fff; /* Color de texto blanco para el botón */
-    text-decoration: none; /* Quita el subrayado predeterminado de los enlaces */
-    padding: 10px 20px; /* Espaciado interno del botón: 10px arriba/abajo, 20px izquierda/derecha */
-    border-radius: 5px; /* Redondea las esquinas del botón */
-    transition: background-color 0.3s ease; /* Suaviza la transición del color de fondo al pasar el ratón */
-    font-weight: bold; /* Hace el texto del botón en negrita */
+    background-color: var(--color-secondary);
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
 }
 
 .Header-Principal .login-boton a:hover {
-    background-color: #0056b3; /* Cambia el color de fondo del botón a un azul más oscuro al pasar el ratón */
+    background-color: #0056b3;
 }
 
-/* Define una fuente específica ('Averia Libre') para elementos de título y botones destacados */
-.Header-Principal h1, /* El título principal del sitio */
-h2, /* Títulos de secciones como "Nuestras Películas" */
-h3, /* Subtítulos en secciones y títulos del footer */
-.sidebar-menu h1, /* El título "Explora" en la barra lateral */
-.login-boton a /* El texto del botón "Iniciar Sesión" */ {
-    font-family: 'Averia Libre', cursive; /* Aplica la fuente 'Averia Libre' a estos elementos */
-}
-
-/* Estilos de la Barra Lateral */
+/* --- Barra Lateral (Sidebar) --- */
 .sidebar-menu {
-    float: right; /* Hace que la barra lateral flote a la DERECHA del contenido */
-    width: 220px; /* Define el ancho fijo de la barra lateral */
-    background-color: #222; /* Color de fondo muy oscuro para la barra lateral */
-    padding-top: 20px; /* Espaciado interno superior */
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3); /* Añade una sombra suave en el lado IZQUIERDO de la barra */
-    overflow-y: auto; /* Permite desplazamiento vertical si el contenido de la barra excede su altura */
-    z-index: 900; /* Asegura que la barra lateral esté por encima de otros elementos si hay superposiciones */
-    min-height: 150vh; /* Establece una altura mínima del 150% del alto de la ventana visible, para que abarque más de la página */
-    padding-bottom: 20px; /* Espaciado interno inferior */
+    position: fixed; /* Barra lateral fija a la derecha */
+    top: 0;
+    right: 0;
+    width: var(--sidebar-width);
+    background-color: #222;
+    /* Calcula el padding superior para empezar debajo del header fijo. */
+    padding-top: calc(var(--header-height) + 20px); 
+    box-shadow: -2px 0 5px var(--color-shadow);
+    overflow-y: auto; /* Permite scroll interno si el contenido es largo */
+    z-index: 950; /* Por debajo del header, por encima del contenido principal */
+    height: 100vh; /* Ocupa toda la altura del viewport */
+    box-sizing: border-box; /* Incluye padding en el 100vh */
+    padding-bottom: 20px; /* Espaciado inferior */
 }
 
-/* Ajuste del Contenido Principal para acomodar la barra lateral */
-.main-content {
-    margin-right: 220px; /* Empuja el contenido principal hacia la izquierda para dejar espacio a la barra lateral de 220px */
-    margin-left: 0; /* Asegura que no haya margen izquierdo residual si previamente lo tenía */
-    padding: 20px; /* Espaciado interno para el contenido principal */
-}
-
-/* Estilos del Título "Explora" dentro de la Barra Lateral */
 .sidebar-menu h1 {
-    color: #59528f; /* Color morado para el título "Explora" */
-    font-size: 1.8em; /* Tamaño de fuente del título */
-    text-align: center; /* Centra el texto horizontalmente */
-    margin-bottom: 20px; /* Espacio debajo del título */
-    border-bottom: 1px solid #444; /* Añade una línea divisoria debajo del título */
-    padding-bottom: 10px; /* Espaciado entre el título y la línea divisoria */
+    color: var(--color-primary);
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
 }
 
-/* Estilos de la Lista de Enlaces en la Barra Lateral */
 .sidebar-menu ul {
-    list-style: none; /* Quita los marcadores (viñetas) de la lista */
-    padding: 0; /* Elimina el relleno predeterminado de la lista */
-    margin: 0; /* Elimina el margen predeterminado de la lista */
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .sidebar-menu li a {
-    display: block; /* Hace que cada enlace ocupe todo el ancho disponible del elemento de lista */
-    color: #bbb; /* Color de texto gris claro para los enlaces */
-    text-decoration: none; /* Quita el subrayado de los enlaces */
-    padding: 12px 20px; /* Espaciado interno para cada enlace */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Suaviza la transición del color de fondo y texto al pasar el ratón */
-    font-size: 1.1em; /* Tamaño de fuente para los enlaces */
+    display: block;
+    color: var(--color-text-medium);
+    text-decoration: none;
+    padding: 12px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1.1em;
+    font-family: 'Inter', sans-serif; /* Consistencia para los enlaces */
 }
 
 .sidebar-menu li a:hover {
-    background-color: #007bff; /* Cambia el fondo a azul al pasar el ratón */
-    color: #fff; /* Cambia el color del texto a blanco al pasar el ratón */
+    background-color: var(--color-secondary);
+    color: #fff;
 }
 
-/* Define la fuente 'Inter' para los enlaces de la barra lateral y el footer */
-.sidebar-menu li a,
-.footer-section ul li a {
-    font-family: 'Inter', sans-serif; /* Aplica la fuente 'Inter' a estos enlaces */
+/* --- Contenido Principal (Main) --- */
+.main-content {
+    margin-right: var(--sidebar-width); /* Deja espacio para la barra lateral fija */
+    margin-left: 0; /* Asegura que no haya margen izquierdo residual */
+    margin-top: var(--header-height); /* Empuja el contenido hacia abajo del header fijo */
+    padding: 20px; /* Espaciado interno para todo el contenido principal */
+    /* Altura mínima para asegurar que el footer se empuje hacia abajo si hay poco contenido */
+    min-height: calc(100vh - var(--header-height) - 100px); /* Ajusta 100px según la altura de tu footer */
+    box-sizing: border-box; /* Incluye padding en el ancho/alto */
 }
 
-/* Estilos del Pie de Página */
-.footer {
-    background-color: #1a1a1a; /* Color de fondo muy oscuro para el pie de página */
-    color: #e0e0e0; /* Color de texto claro para el pie de página */
-    padding: 40px 20px; /* Espaciado interno del pie de página */
-    font-family: 'Inter', sans-serif; /* Fuente principal para el texto del pie de página */
-    display: flex; /* Utiliza Flexbox para organizar el contenido interno del pie de página */
-    flex-direction: column; /* Apila el contenido (secciones y copyright) verticalmente */
-    align-items: center; /* Centra los elementos hijos horizontalmente */
-    width: 100%; /* Ocupa el 100% del ancho del contenedor padre */
-    box-sizing: border-box; /* Incluye el padding y border en el ancho/alto total */
-    /* margin-top: 50px; <--- ¡ELIMINA O COMENTA ESTA LÍNEA! */ /* Comentario para indicar que esta línea debe ser eliminada si estaba presente y causaba problemas de espaciado */
-    flex-shrink: 0; /* Evita que el pie de página se encoja si el contenido es demasiado largo */
+/* --- Carrusel --- */
+.carrusel {
+    position: relative;
+    width: 100%; /* El carrusel ocupa el 100% del ancho de su contenedor (.main-content) */
+    max-width: 900px; /* Ajusta este valor para que el carrusel no se desborde con el sidebar */
+    margin: 20px auto; /* Centra el carrusel dentro del main-content */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--color-shadow);
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.footer-content {
-    display: flex; /* Utiliza Flexbox para las secciones internas (Acerca de, Enlaces, Contacto) */
-    flex-wrap: wrap; /* Permite que las secciones se envuelvan a la siguiente línea en pantallas pequeñas */
-    justify-content: space-around; /* Distribuye el espacio equitativamente alrededor de las secciones */
-    width: 100%; /* Ocupa el 100% del ancho del footer */
-    max-width: 1200px; /* Limita el ancho máximo del contenido del pie de página */
-    margin-bottom: 20px; /* Espacio entre el contenido principal del footer y la sección de copyright */
+.carrusel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
-.footer-section {
-    flex: 1; /* Cada sección intenta ocupar una porción igual del espacio disponible */
-    min-width: 250px; /* Ancho mínimo para cada sección antes de que se envuelva a una nueva línea */
-    margin: 20px; /* Margen alrededor de cada sección del pie de página */
+.carrusel img.active {
+    display: block;
+    opacity: 1;
 }
 
-.footer-section h3 {
-    color: #ffffff; /* Color de texto blanco para los títulos de las secciones del footer */
-    margin-bottom: 15px; /* Espacio debajo de los títulos de sección */
-    font-size: 1.2em; /* Tamaño de fuente para los títulos de sección */
+.carrusel-boton {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+    z-index: 2;
 }
 
-.footer-section p {
-    font-size: 0.9em; /* Tamaño de fuente para los párrafos en el footer */
-    line-height: 1.6; /* Altura de línea para mejorar la legibilidad de los párrafos */
-    margin-bottom: 10px; /* Espacio debajo de cada párrafo */
+.carrusel-boton.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
 }
 
-.footer-section ul {
-    list-style: none; /* Quita los marcadores (viñetas) de las listas en el footer */
-    padding: 0; /* Elimina el relleno predeterminado de las listas */
+.carrusel-boton.prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
 }
 
-.footer-section ul li {
-    margin-bottom: 8px; /* Espacio entre cada elemento de la lista en el footer */
+.carrusel-boton:hover {
+    background-color: rgba(0,0,0,0.8);
 }
 
-.footer-section ul li a {
-    color: #b0b0b0; /* Color gris claro para los enlaces en el footer */
-    text-decoration: none; /* Quita el subrayado de los enlaces */
-    transition: color 0.3s ease; /* Suaviza la transición del color del enlace al pasar el ratón */
+.carrusel img:first-of-type {
+    display: block;
+    opacity: 1;
 }
 
-.footer-section ul li a:hover {
-    color: #ffffff; /* Cambia el color del enlace a blanco al pasar el ratón */
-}
-
-/* Estilos para los iconos de Redes Sociales (Font Awesome) */
-.social-links a {
-    color: #ffffff; /* Color blanco para los iconos de redes sociales */
-    font-size: 24px; /* Tamaño de los iconos */
-    margin-right: 15px; /* Espacio a la derecha de cada icono */
-    transition: color 0.3s ease; /* Suaviza la transición del color al pasar el ratón */
-    text-decoration: none; /* Asegura que los iconos no tengan subrayado */
-}
-
-.social-links a:hover {
-    color: #007bff; /* Cambia el color de los iconos a azul al pasar el ratón */
-}
-
-/* Estilos de la Sección Inferior del Pie de Página (Copyright) */
-.footer-bottom {
-    text-align: center; /* Centra el texto de copyright horizontalmente */
-    font-size: 0.8em; /* Tamaño de fuente más pequeño para el texto de copyright */
-    color: #888888; /* Color gris más oscuro para el texto de copyright */
-    padding-top: 20px; /* Espaciado superior sobre el texto de copyright */
-    border-top: 1px solid #333333; /* Añade una línea divisoria sobre el texto de copyright */
-    width: 100%; /* Ocupa todo el ancho disponible */
-}
-
-/* Esto está duplicado, puedes considerar eliminar una de las entradas */
-.sidebar-menu li a,
-.footer-section ul li a {
-    font-family: 'Inter', sans-serif; /* Define la fuente 'Inter' para estos elementos */
-}
-
-/* Media Queries para Responsividad en el Pie de Página */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column; /* Apila las secciones del footer verticalmente en pantallas pequeñas */
-        align-items: center; /* Centra las secciones apiladas */
-    }
-
-    .footer-section {
-        min-width: 100%; /* Cada sección del footer ocupa todo el ancho disponible */
-        text-align: center; /* Centra el texto dentro de cada sección */
-        margin: 15px 0; /* Ajusta el margen vertical para las secciones */
-    }
-    .social-links {
-        display: flex; /* Utiliza Flexbox para centrar los iconos */
-        justify-content: center; /* Centra los iconos de redes sociales horizontalmente */
-        margin-top: 10px; /* Espacio superior para los iconos */
-    }
-    .social-links a {
-        margin: 0 10px; /* Ajusta el margen horizontal entre los iconos en pantallas móviles */
-    }
-}
-
-/* Estilos para las Tarjetas de Películas */
+/* --- Secciones de Películas (Grid) --- */
 .movie-grid-section {
-    background-color: #2c3e50; /* Color de fondo oscuro para la sección que contiene la cuadrícula de películas */
-    padding: 40px 20px; /* Espaciado interno de la sección */
-    margin-top: 50px; /* Espacio superior para separar esta sección del contenido anterior */
-    border-radius: 8px; /* Redondea las esquinas de la sección */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Añade una sombra a la sección */
+    background-color: var(--color-darker-bg);
+    padding: 40px 20px;
+    margin-top: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--color-shadow);
 }
 
 .movie-grid-section h2 {
-    color: #e0e0e0; /* Color de texto claro para el título de la sección */
-    text-align: center; /* Centra el título horizontalmente */
-    margin-bottom: 30px; /* Espacio debajo del título */
-    font-size: 2.2em; /* Tamaño de fuente del título */
-    font-family: 'Averia Libre', cursive; /* Aplica la fuente 'Averia Libre' al título */
+    color: var(--color-text-light);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    font-family: 'Averia Libre', cursive;
 }
 
 .movie-grid {
-    display: grid; /* Utiliza CSS Grid para crear una cuadrícula de tarjetas */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Crea columnas responsivas: mínimo 200px, máximo 1fr (distribución equitativa) */
-    gap: 30px; /* Espacio (brecha) entre las celdas de la cuadrícula (entre las tarjetas) */
-    justify-content: center; /* Centra las tarjetas en la cuadrícula si no llenan completamente la fila */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    justify-content: center;
 }
 
 .movie-card {
-    background-color: #374458; /* Color de fondo de cada tarjeta de película */
-    border-radius: 8px; /* Redondea las esquinas de la tarjeta */
-    overflow: hidden; /* Asegura que cualquier contenido que se desborde (como las esquinas de la imagen) se recorte */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra a la tarjeta */
-    display: flex; /* Utiliza Flexbox para organizar el contenido (imagen y texto) dentro de la tarjeta */
-    flex-direction: column; /* Organiza los elementos en columna: imagen arriba, información abajo */
-    text-align: center; /* Centra el texto dentro de la tarjeta */
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Suaviza las animaciones al pasar el ratón */
+    background-color: var(--color-dark-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px var(--color-shadow);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .movie-card:hover {
-    transform: translateY(-5px); /* Mueve la tarjeta ligeramente hacia arriba al pasar el ratón (efecto "levantar") */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta la sombra al pasar el ratón */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px var(--color-shadow);
 }
 
 .movie-card img {
-    width: 100%; /* La imagen ocupa el 100% del ancho de la tarjeta */
-    height: 300px; /* Altura fija para los pósteres (ajusta si tus imágenes son diferentes) */
-    object-fit: cover; /* Recorta la imagen para que cubra el área sin distorsionarse */
-    border-bottom: 1px solid #444; /* Añade una línea divisoria debajo de la imagen */
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-bottom: 1px solid #444;
 }
 
 .movie-info {
-    padding: 15px; /* Espaciado interno para la sección de información de la película */
-    display: flex; /* Utiliza Flexbox para organizar el título, descripción y botón */
-    flex-direction: column; /* Organiza los elementos en columna */
-    flex-grow: 1; /* Permite que esta sección ocupe el espacio restante dentro de la tarjeta */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .movie-info h4 {
-    color: #f0f0f0; /* Color de texto claro para el título de la película en la tarjeta */
-    font-size: 1.2em; /* Tamaño de fuente del título de la película */
-    margin-top: 0; /* Elimina el margen superior predeterminado */
-    margin-bottom: 10px; /* Espacio debajo del título */
-    font-family: 'Averia Libre', cursive; /* Aplica la fuente 'Averia Libre' al título */
-}
-
-.movie-info p {
-    color: #bbb; /* Color de texto gris claro para la descripción de la película */
-    font-size: 0.9em; /* Tamaño de fuente de la descripción */
-    line-height: 1.5; /* Altura de línea para la legibilidad */
-    margin-bottom: 15px; /* Espacio debajo de la descripción */
-    flex-grow: 1; /* Permite que la descripción ocupe el espacio restante y empuje el botón hacia abajo */
+    color: var(--color-text-light);
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: 'Averia Libre', cursive;
 }
 
 .view-more-button {
-    background-color: #007bff; /* Color de fondo azul para el botón "Ver más" */
-    color: #fff; /* Color de texto blanco para el botón */
-    text-decoration: none; /* Quita el subrayado del enlace */
-    padding: 8px 15px; /* Espaciado interno del botón */
-    border-radius: 5px; /* Redondea las esquinas del botón */
-    display: inline-block; /* Permite aplicar padding y margin a un enlace */
-    margin-top: auto; /* Empuja el botón al final del contenedor `movie-info` (gracias a `flex-grow` en el párrafo) */
-    transition: background-color 0.3s ease; /* Suaviza la transición del color de fondo al pasar el ratón */
-    font-weight: bold; /* Hace el texto del botón en negrita */
-    font-family: 'Inter', sans-serif; /* Aplica la fuente 'Inter' al texto del botón */
+    background-color: var(--color-secondary);
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: auto;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
 }
 
 .view-more-button:hover {
-    background-color: #0056b3; /* Cambia el color de fondo del botón a un azul más oscuro al pasar el ratón */
+    background-color: #0056b3;
 }
 
-/* Media Queries para Responsividad en la Cuadrícula de Películas */
+/* --- Secciones Descriptivas con Icono (ej. en Terror.html) --- */
+.section-intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+
+.section-description {
+    font-size: 1.3em;
+    color: var(--color-text-medium);
+    font-family: 'Indie Flower', cursive;
+    margin: 0;
+    text-align: center;
+}
+
+.section-icon {
+    width: 30px;
+    height: auto;
+}
+
+/* --- Pie de Página (Footer) --- */
+.footer {
+    background-color: var(--color-darkest-bg);
+    color: var(--color-text-light);
+    padding: 40px 20px;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Ancho del footer es 100% menos el ancho de la sidebar */
+    width: calc(100% - var(--sidebar-width)); 
+    box-sizing: border-box;
+    flex-shrink: 0; /* Evita que el footer se encoja */
+    margin-right: var(--sidebar-width); /* Empuja el footer a la izquierda para dejar espacio a la sidebar */
+    margin-left: 0; /* Asegura que no haya margen izquierdo inesperado */
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 20px;
+}
+
+.footer-section h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.footer-section p {
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: var(--color-text-medium);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-section ul li a:hover {
+    color: #ffffff;
+}
+
+.social-links a {
+    color: #ffffff;
+    font-size: 24px;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: var(--color-secondary);
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.8em;
+    color: var(--color-text-dark);
+    padding-top: 20px;
+    border-top: 1px solid #333333;
+    width: 100%;
+}
+
+
+/* --- Media Queries para Responsividad --- */
+
+/* Ajustes para pantallas medianas (tablets en horizontal y escritorios pequeños) */
 @media (max-width: 1024px) {
+    .Header-Principal nav,
+    .main-content,
+    .footer-content {
+        max-width: 900px; /* Ajusta el ancho máximo */
+    }
     .movie-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Ajusta el ancho mínimo de las columnas en pantallas medianas */
-        gap: 20px; /* Reduce el espacio entre las tarjetas */
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
     }
 }
 
+/* Ajustes para tablets (vertical) y móviles grandes */
 @media (max-width: 768px) {
+    /* Header deja de ser fijo */
+    .Header-Principal {
+        position: static;
+        padding: 10px 15px;
+    }
+    .Header-Principal h1 {
+        font-size: 1.5em;
+    }
+    .Header-Principal .login-boton a {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    /* Barra lateral deja de ser fija y se convierte en un menú superior/inferior */
+    .sidebar-menu {
+        position: static; /* Deja de ser fija */
+        width: 100%; /* Ocupa todo el ancho */
+        height: auto; /* Altura se ajusta al contenido */
+        box-shadow: none;
+        padding-top: 10px; /* Menos padding superior en móviles */
+        min-height: auto;
+        margin-bottom: 20px; /* Espacio debajo del menú en móviles */
+    }
+
+    .sidebar-menu nav ul {
+        display: flex; /* Elementos en línea */
+        flex-wrap: wrap; /* Permite que se envuelvan */
+        justify-content: center; /* Centra los elementos */
+        padding: 10px 0;
+        border-top: 1px solid #444;
+    }
+
+    .sidebar-menu nav li {
+        margin: 5px 10px; /* Espacio entre los elementos de la lista */
+    }
+
+    .sidebar-menu nav li a {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .sidebar-menu h1 {
+        display: none; /* Oculta el título "Explora" en móviles */
+    }
+
+    /* Contenido principal se ajusta */
+    .main-content {
+        margin-right: 0; /* Elimina el margen derecho */
+        margin-left: 0;
+        margin-top: 0; /* No necesita margen superior si el header es estático */
+        padding: 15px;
+    }
+
+    /* Carrusel se ajusta */
+    .carrusel {
+        height: 250px;
+        margin: 10px auto;
+        max-width: 100%; /* Ocupa todo el ancho disponible en móvil */
+    }
+
+    /* Grid de películas se ajusta */
     .movie-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajusta aún más el ancho mínimo en pantallas más pequeñas */
-        gap: 15px; /* Reduce el espacio entre las tarjetas */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
     }
     .movie-grid-section h2 {
-        font-size: 1.8em; /* Reduce el tamaño del título de la sección */
+        font-size: 1.8em;
     }
     .movie-card img {
-        height: 250px; /* Ajusta la altura de los pósteres para móviles */
+        height: 250px;
+    }
+
+    /* Footer se ajusta */
+    .footer {
+        width: 100%; /* Ocupa todo el ancho */
+        margin-right: 0; /* Elimina el margen derecho */
+        padding: 20px;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-section {
+        min-width: 100%;
+        text-align: center;
+        margin: 15px 0;
+    }
+    .social-links {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .social-links a {
+        margin: 0 10px;
     }
 }
 
+/* Ajustes para móviles pequeños */
 @media (max-width: 480px) {
     .movie-grid {
-        grid-template-columns: 1fr; /* Una sola columna para las tarjetas en pantallas muy pequeñas */
+        grid-template-columns: 1fr; /* Una columna por película */
     }
     .movie-card img {
-        height: 280px; /* Ajusta la altura del póster cuando hay una sola columna */
+        height: 280px;
     }
-}
-
-/* Estilos para la Página de Soporte */
-.support-section {
-    background-color: #2c3e50; /* Color de fondo de la sección de soporte */
-    padding: 40px; /* Espaciado interno de la sección */
-    margin-top: 30px; /* Espacio superior para separar de otros contenidos */
-    border-radius: 8px; /* Redondea las esquinas de la sección */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Añade una sombra a la sección */
-    color: #e0e0e0; /* Color de texto general para la sección de soporte */
-}
-
-.support-section h2 {
-    color: #f0f0f0; /* Color de texto claro para el título principal de la sección de soporte */
-    text-align: center; /* Centra el título horizontalmente */
-    margin-bottom: 30px; /* Espacio debajo del título */
-    font-size: 2.5em; /* Tamaño de fuente del título */
-    font-family: 'Averia Libre', cursive; /* Aplica la fuente 'Averia Libre' al título */
-}
-
-.support-section h3 {
-    color: #f0f0f0; /* Color de texto claro para los subtítulos dentro de la sección de soporte */
-    margin-top: 40px; /* Espacio superior para separar los subtítulos */
-    margin-bottom: 20px; /* Espacio debajo de los subtítulos */
-    font-size: 1.8em; /* Tamaño de fuente de los subtítulos */
-    font-family: 'Averia Libre', cursive; /* Aplica la fuente 'Averia Libre' a los subtítulos */
-    border-bottom: 2px solid #59528f; /* Añade una línea decorativa morada debajo de los subtítulos */
-    padding-bottom: 10px; /* Espaciado entre el subtítulo y la línea */
-}
-
-.support-section p {
-    line-height: 1.6; /* Altura de línea para mejorar la legibilidad de los párrafos */
-    margin-bottom: 20px; /* Espacio debajo de cada párrafo */
-    font-size: 1.1em; /* Tamaño de fuente de los párrafos */
-}
-
-/* Estilos para las Preguntas Frecuentes (FAQ) */
-.faq-item {
-    background-color: #374458; /* Color de fondo de cada elemento de pregunta/respuesta FAQ */
-    padding: 20px; /* Espaciado interno del elemento FAQ */
-    border-radius: 8px; /* Redondea las esquinas del elemento FAQ */
-    margin-bottom: 15px; /* Espacio entre cada elemento FAQ */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para el elemento FAQ */
-}
-
-.faq-item h4 {
-    color: #007bff; /* Color azul para las preguntas FAQ */
-    margin-top: 0; /* Elimina el margen superior predeterminado */
-    margin-bottom: 10px; /* Espacio debajo de la pregunta */
-    font-size: 1.2em; /* Tamaño de fuente de la pregunta */
-    font-family: 'Inter', sans-serif; /* Aplica la fuente 'Inter' a la pregunta */
-}
-
-.faq-item p {
-    font-size: 1em; /* Tamaño de fuente de la respuesta FAQ */
-    color: #bbb; /* Color gris claro para la respuesta FAQ */
-    margin-bottom: 0; /* Elimina el margen inferior predeterminado */
-}
-
-/* Estilos para el Formulario de Contacto */
-.contact-form {
-    background-color: #374458; /* Color de fondo del formulario de contacto */
-    padding: 30px; /* Espaciado interno del formulario */
-    border-radius: 8px; /* Redondea las esquinas del formulario */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para el formulario */
-    margin-top: 30px; /* Espacio superior para separar el formulario */
-}
-
-.form-group {
-    margin-bottom: 20px; /* Espacio entre cada grupo de formulario (etiqueta + campo) */
-}
-
-.form-group label {
-    display: block; /* Hace que la etiqueta ocupe su propia línea */
-    margin-bottom: 8px; /* Espacio debajo de la etiqueta */
-    color: #f0f0f0; /* Color de texto claro para la etiqueta */
-    font-weight: bold; /* Hace el texto de la etiqueta en negrita */
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
-    width: 100%; /* Ocupa el 100% del ancho disponible */
-    padding: 12px; /* Espaciado interno de los campos de entrada */
-    border: 1px solid #555; /* Borde gris oscuro para los campos */
-    border-radius: 5px; /* Redondea las esquinas de los campos */
-    background-color: #444; /* Color de fondo de los campos de entrada */
-    color: #f0f0f0; /* Color del texto que se escribe en los campos */
-    font-size: 1em; /* Tamaño de fuente del texto en los campos */
-    box-sizing: border-box; /* Asegura que el padding y el border no aumenten el ancho total del campo */
-}
-
-.form-group input[type="text"]:focus,
-.form-group input[type="email"]:focus,
-.form-group textarea:focus {
-    border-color: #007bff; /* Cambia el color del borde a azul al enfocar el campo */
-    outline: none; /* Elimina el contorno azul predeterminado al enfocar */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Añade una sombra azul suave al enfocar */
-}
-
-.submit-button {
-    background-color: #007bff; /* Color de fondo azul para el botón de envío */
-    color: #fff; /* Color de texto blanco para el botón de envío */
-    padding: 12px 25px; /* Espaciado interno del botón */
-    border: none; /* Elimina el borde predeterminado del botón */
-    border-radius: 5px; /* Redondea las esquinas del botón */
-    cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el botón */
-    font-size: 1.1em; /* Tamaño de fuente del botón */
-    font-weight: bold; /* Hace el texto del botón en negrita */
-    transition: background-color 0.3s ease; /* Suaviza la transición del color de fondo al pasar el ratón */
-}
-
-.submit-button:hover {
-    background-color: #0056b3; /* Cambia el color de fondo a un azul más oscuro al pasar el ratón */
-}
-
-/* Estilos para Información de Contacto Directo */
-.contact-info {
-    margin-top: 40px; /* Espacio superior para separar la información de contacto */
-    padding: 20px; /* Espaciado interno de la sección de información de contacto */
-    background-color: #374458; /* Color de fondo de la sección */
-    border-radius: 8px; /* Redondea las esquinas de la sección */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para la sección */
-}
-
-.contact-info h4 {
-    color: #f0f0f0; /* Color de texto claro para el título de la información de contacto */
-    margin-top: 0; /* Elimina el margen superior predeterminado */
-    margin-bottom: 15px; /* Espacio debajo del título */
-    font-size: 1.4em; /* Tamaño de fuente del título */
-    font-family: 'Averia Libre', cursive; /* Aplica la fuente 'Averia Libre' al título */
-}
-
-.contact-info p {
-    margin-bottom: 10px; /* Espacio debajo de cada párrafo de información */
-    color: #bbb; /* Color gris claro para los párrafos */
-    font-size: 1em; /* Tamaño de fuente de los párrafos */
-}
-
-.contact-info p i {
-    margin-right: 10px; /* Espacio a la derecha del icono para separarlo del texto */
-    color: #007bff; /* Color azul para los iconos de contacto */
-}
-
-/* Media Queries para la Página de Soporte (adapta el padding en pantallas más pequeñas) */
-@media (max-width: 768px) {
-    .support-section {
-        padding: 20px; /* Reduce el espaciado interno de la sección de soporte en pantallas pequeñas */
+    .main-content {
+        padding: 10px;
     }
-    .support-section h2 {
-        font-size: 2em; /* Reduce el tamaño del título principal de soporte */
+    .footer {
+        padding: 15px 10px;
     }
-    .support-section h3 {
-        font-size: 1.5em; /* Reduce el tamaño de los subtítulos de soporte */
+    .footer-section h3 {
+        font-size: 1.1em;
     }
-    .contact-form, .contact-info, .faq-item {
-        padding: 20px; /* Ajusta el padding de los elementos del formulario/contacto/faq */
+    .footer-section p, .footer-section ul li a, .footer-bottom {
+        font-size: 0.85em;
     }
 }
