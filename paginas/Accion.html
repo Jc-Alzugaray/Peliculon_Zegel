@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terror - PELICULON!</title>
+    <title>Acción - PELICULON!</title>
     <link rel="stylesheet" href="../Stylos/Inicio.css"> 
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
 <body>
     
     <header class="Header-Principal">
         <nav>
-            <h1><a href="../index.html" style="color: #59528f; text-decoration: none;">PELICULON!</a></h1> 
+            <h1><a href="../index.html">PELICULON!</a></h1> 
             <ul>
                 <li class="login-boton">
                     <a href="#">Iniciar Sesion</a>
@@ -23,9 +24,9 @@
         </nav>
     </header>
 
-    <aside class="sidebar-menu"> 
+    <aside class="sidebar-menu">
+        <h1>Explora</h1>
         <nav>
-            <h1>Explora</h1>
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="Estrenos.html">Estrenos</a></li>
@@ -38,52 +39,55 @@
         </nav>
     </aside>
 
-    <div class="page-layout-wrapper">
+    <div class="page-container">
         <main class="main-content">
             <section class="movie-grid-section">
-                <h2>Películas de Terror</h2>
-
+                <h2>Acción</h2>
                 <div class="section-intro">
-                    <p class="section-description">¿Quieres pasar un mal rato?</p>
-                    <img src="../imagenes/eeeee.png" alt="Icono de fantasma" class="section-icon">
+                    <p class="section-description">¡Adrenalina pura! Prepárate para explosiones, persecuciones y combates épicos en nuestra selección de películas de acción.</p>
+                    <img src="../imagenes/explosion.png" alt="Icono de Acción" class="section-icon"> 
                 </div>
+
                 <div class="movie-grid">
                     <div class="movie-card">
-                        <img src="../imagenes/conjuro.png" alt="El Conjuro">
+                        <img src="../imagenes/aveng.png" alt="Avengers">
                         <div class="movie-info">
-                            <h4>El Conjuro</h4>
-                            <p>Basada en hechos reales, una familia es aterrorizada por una presencia oscura en su nueva casa de campo.</p>
+                            <h4>Vengadores: Endgame</h4>
+                            <p>Los Vengadores restantes, junto a sus aliados, intentan revertir la devastación causada por Thanos y restaurar el orden en el universo.</p>
                             <a href="#" class="view-more-button">Ver más</a>
                         </div>
                     </div>
+
                     <div class="movie-card">
-                        <img src="../imagenes/it.png" alt="IT (Eso)">
+                        <img src="../imagenes/miss.png" alt="Mision Imposible">
                         <div class="movie-info">
-                            <h4>IT (Eso)</h4>
-                            <p>Un grupo de niños debe enfrentarse a sus mayores miedos cuando intentan destruir a Pennywise, el payaso.</p>
+                            <h4>Misión: Imposible - Fallout</h4>
+                            <p>Ethan Hunt y su equipo deben correr contra el tiempo cuando una misión sale mal y armas nucleares terminan en manos equivocadas, forzándolos a una carrera global.</p>
                             <a href="#" class="view-more-button">Ver más</a>
                         </div>
                     </div>
+
                     <div class="movie-card">
-                        <img src="../imagenes/here.png" alt="Hereditary">
+                        <img src="../imagenes/jhon.webp" alt="John Wick">
                         <div class="movie-info">
-                            <h4>Hereditary</h4>
-                            <p>Tras la muerte de la abuela, una familia descubre secretos terroríficos y oscuros legados.</p>
+                            <h4>John Wick</h4>
+                            <p>Un ex-asesino a sueldo se ve forzado a regresar al inframundo criminal que había abandonado, en una búsqueda implacable de venganza después de que le quitan lo último que amaba.</p>
                             <a href="#" class="view-more-button">Ver más</a>
                         </div>
                     </div>
+
                     <div class="movie-card">
-                        <img src="../imagenes/waren.png" alt="Expediente Warren">
+                        <img src="../imagenes/mad.png" alt="Mad Max: Furia en la Carretera">
                         <div class="movie-info">
-                            <h4>Expediente Warren: El Caso Enfield</h4>
-                            <p>Los demonólogos Ed y Lorraine Warren viajan a Londres para ayudar a una familia acosada por espíritus.</p>
+                            <h4>Mad Max: Furia en la Carretera</h4>
+                            <p>En un páramo post-apocalíptico, la emperatriz Furiosa se rebela contra un tirano, liberando a sus prisioneras y uniendo fuerzas con el solitario Max Rockatansky.</p>
                             <a href="#" class="view-more-button">Ver más</a>
                         </div>
                     </div>
-                </div>
+                    
+                    </div>
             </section>
         </main>
-        </div> 
 
         <footer class="footer">
             <div class="footer-content">
@@ -100,6 +104,7 @@
                     <h3>Enlaces Rápidos</h3>
                     <ul>
                         <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="Estrenos.html">Estrenos</a></li> 
                         <li><a href="#">Géneros</a></li>
                         <li><a href="#">Próximamente</a></li>
                         <li><a href="Soporte.html">Soporte</a></li>
@@ -114,9 +119,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; PELICULON! Todos los derechos reservados.
+                &copy; <span id="current-year"></span> PELICULON! Todos los derechos reservados.
             </div>
         </footer>
-    
+    </div> 
+
+    <script>
+        // Script para actualizar dinámicamente el año en el footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
